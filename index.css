@@ -1,0 +1,592 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+/* reset */
+
+*{margin: 0;padding: 0;cursor: none;}
+ul,ol,li{list-style: none;}
+a{text-decoration: none;}
+img{border: none; vertical-align: top;}
+
+body{font-family: 'Lato', 'Noto Sans KR', sans-serif;}
+
+/* intro */
+
+.intro{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff;
+    z-index: 9999999999999;
+}
+.result{ 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    font-size: 40px; 
+    line-height:40px; 
+    border-right: 1px solid #000; 
+    padding-right: 2px; 
+    box-sizing: border-box; 
+    animation: cursor .7s infinite;
+    font-weight: 300;
+}
+
+ @keyframes cursor{ 
+      0%{border-right: 1px solid #fff} 
+      50%{border-right: 1px solid #000} 
+      100%{border-right: 1px solid #fff} 
+    }
+
+/* cursor */
+
+.cursor{
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+.cursor .circle{
+    width: 5px;
+    height: 5px;
+    border: 2px solid #000;
+    position: absolute;
+    background: #000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    transition: all ease .5s;
+}
+.cursor .circle .zoom{
+    position: absolute;
+    top: 600px;
+    left: 600px;
+    width: 400px;
+    height: 2px;
+    transform: rotate(45deg);
+    transform-origin: left;
+    background: #000;
+    display: none;
+    text-indent: 40px;
+}
+
+
+/* header */
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+}
+.header .logo{
+    float: left;
+    margin-top: 10px;
+    margin-left: 20px;
+    height: 30px;
+    width: 200px;
+    position: relative;
+    display: none;
+}
+
+.header .logo p a{
+    color: #000;
+    line-height: 30px;
+
+}
+.header .logo p:nth-child(1) a{
+    font-size: 1.5em;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+.header .logo p:nth-child(2){
+    position: absolute;
+    top: 40px;
+    left: -300px;
+    transition: all ease .5s;
+}
+.header .logo p:nth-child(3){
+    position: absolute;
+    top: 70px;
+    left: -300px;
+    transition: all ease .5s;
+    transition-delay: .2s;
+}
+
+.header .menu{
+    width: 600px;
+    height: 600px;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    position: absolute;
+    top: -625px;
+    right: -227px;
+    transform-origin: left bottom;
+    transition:all ease .5s;
+}
+.header .menu.move{
+    transform:rotate(45deg);
+}
+
+.header .menu .p-wrapper{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+}
+.header .menu .p-wrapper p{
+    margin-left: 153px;
+    margin-right: 10px;
+    margin-top: 7px;
+}
+.header .menu .p-wrapper p a{
+    color: #000;
+    text-transform: uppercase;
+}
+.header .menu .p-wrapper p a:hover{
+    color: red;
+}
+.header .menu .p-wrapper p:nth-child(1) a.active{
+    color: red;
+}
+.header .menu .p-wrapper p a.active{
+    color: red;
+}
+.header .nav{
+    width: 30px;
+    height: 30px;
+    float: right;
+    position: relative;
+    margin-right: 20px;
+    margin-top: 10px;
+    transition: all ease .5s;
+    opacity: 0;
+}
+.header .nav.close{
+    transform:rotate(360deg);
+}
+.header .nav.close span:first-child{
+    transform:rotate(45deg);
+}
+.header .nav.close span:last-child{
+    transform:rotate(-45deg);
+}
+.header .nav span{
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #000;
+    position: absolute;
+    transition: all ease .5s;
+    transform-origin: 8px;
+}
+.header .nav span:first-child{
+    top: 10px;
+    right: 0;
+    
+}
+.header .nav span:last-child{
+    top: 20px;
+    left: 0;
+    
+}
+
+
+.side{
+    position: fixed;
+    text-transform: uppercase;
+    transform: rotate(-90deg);
+    transform-origin: left;
+    left: 30px;
+    bottom: 10px;
+    font-weight: 500;
+    display: none;
+}
+.footer{
+    position: fixed;
+    text-transform: uppercase;
+    transform: rotate(90deg);
+    transform-origin: right;
+    right: 30px;
+    bottom: 10px;
+    font-weight: 500;
+    display: none;
+}
+
+/* section */
+
+.section{
+    display: none;
+}
+.section .wrap{
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.section .wrap .img-wrapper{
+    width: 800px;
+    height: 800px;
+    position: fixed;
+    top: 50%;
+    margin-top: -300px;
+    overflow: hidden;
+    display: none;
+}
+.section .wrap .img-wrapper p{
+    text-align: center;
+    height: 20px;
+    font-size: 0.9em;
+    text-indent: 67px;
+    display: none;
+}
+
+.section .wrap .img-wrapper a{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.section .wrap .img-wrapper img{
+    width: 100%;
+    position: absolute;
+    top: 30px;
+    left: -100%;
+    opacity: 0;
+    transition: all ease .5s;
+}
+.section .wrap .img-wrapper .img1{
+    left: 0;
+    opacity: 1;
+}
+
+.section .wrap .change-text{
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 30px;
+    overflow: hidden;
+    display: none;
+}
+.section .wrap .change-text .container{
+    transition: all ease .5s;
+}
+.section .wrap .change-text .text{
+    font-size: 1.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-align: center;
+    width: 120px;
+    line-height: 30px;
+}
+.section .wrap .scroll{
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 25px;
+    height: 40px;
+    border-radius: 18px;
+    border: 1px solid #000;
+    display: none;
+}
+.section .wrap .scroll .wheel{
+    position: absolute;
+    width: 1px;
+    height: 7px;
+    background: #000;
+    top: 5px;
+    left: 50%;
+    animation: wheel 2s forwards infinite linear;
+}
+@keyframes wheel {
+    0%{
+        top:5px;
+    }
+    100%{
+        top:9px;
+    }
+}
+
+.section .wrap .article{
+    height: 100vh;
+    
+}
+.section .wrap .article .text-wrapper{
+    width: 400px;
+    float: right;
+    z-index: 2;
+    padding-left: 45px;
+    box-sizing: border-box;
+    display: none;
+}
+
+.section .wrap .article .text-wrapper h2{
+    font-size: 4em;
+    font-weight: 100;
+    padding-top: 280px;
+}
+
+.section .wrap .article .text-wrapper h3{
+    font-size: 1.2em;
+    font-weight: 300;
+    padding-top: 50px;
+}
+.section .wrap .article .text-wrapper .more{
+    font-size: 1.2em;
+    font-weight: 300;
+    padding-top: 50px;
+    transition:all ease .5s;
+    text-transform: uppercase;
+}
+
+.modal{
+    width: 0;
+    height: 0;
+    position: fixed;
+    background: #1a1a1a;
+    top: 50%;
+    left: 40%;
+    cursor: url('images/cursor.svg'), pointer;
+    display: none;
+    transition: all ease .7s;
+    overflow-y: scroll;
+    z-index: 9999;
+}
+.modal *{
+    cursor: url('images/cursor.svg'), pointer;
+}
+.modal .close{
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+.modal .close span{
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    background: #ffffff;
+    width: 100%;
+    height: 1px;
+    transform-origin: 20px;
+    transition: all ease .5s;
+}
+.modal .close:hover span:first-child{
+    transform: rotate(0deg)
+}
+.modal .close span:first-child{
+    transform: rotate(45deg);
+}
+.modal .close span:last-child{
+    transform: rotate(-45deg);
+}
+.modal .modal-section{
+    height: 200vh;
+    width: 100%;
+    display: none;
+}
+.modal .modal-section .banner{
+    background-size: 100%;
+    background-position: center bottom;
+    width: 100%;
+    height: 600px;
+}
+.modal.samsung-modal .modal-section .banner{
+    background-image: url(images/samsung-modal.jpg);
+}
+.modal.berryweb-modal .modal-section .banner{
+    background-image: url(images/berryweb-modal.png);
+}
+.modal.retropolis-modal .modal-section .banner{
+    background-image: url(images/retropolis-modal.jpg);
+}
+.modal.mandron-modal .modal-section .banner{
+    background-image: url(images/mandron-modal.jpg);
+    background-position: center;
+}
+.modal.profile-modal .modal-section .banner{
+    background-image: url(images/profile-modal.jpg);
+    background-position: center;
+}
+.modal .modal-section .banner .banner-bg{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+}
+.modal .modal-section .banner .banner-bg h2{
+    text-align: center;
+    color: #fff;
+    padding-top: 150px;
+    text-transform: uppercase;
+    font-weight: 100;
+    font-size: 4em;
+}
+
+.modal .modal-section .text-wrapper{
+    color: #fff;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px;
+    border: 1px solid #fff;
+    box-sizing: border-box;
+    margin-top: 100px;
+    font-size: 1.3em;
+    font-weight: 100;
+}
+.modal .modal-section .text-wrapper h3{
+    text-align: center;
+    font-size: 2em;
+    font-weight: 100;
+    padding-bottom: 50px;
+}
+.modal .modal-section .text-wrapper .text{
+    overflow: hidden;
+}
+.modal .modal-section .text-wrapper .text .pe{
+    float: left;
+    width: 50%;
+}
+.modal .modal-section .text-wrapper .text .pe p{
+    text-align: center;
+    line-height: 30px;
+}
+.modal .modal-section .text-wrapper .text .te{
+    float: left;
+    width: 50%;
+}
+.modal .modal-section .text-wrapper .text .te p{
+    text-align: center;
+    line-height: 30px;
+}
+.modal .modal-section .text-wrapper>p{
+    padding-top: 50px;
+}
+
+.modal .modal-section .view{
+    margin-top: 50px;
+    width: 180px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #fff;
+    padding: 30px;
+    overflow: hidden;
+    margin-bottom: 50px;
+}
+.modal .modal-section .view:hover .arrow-wrapper .con{
+    margin-left: 0;
+}
+.modal .modal-section .view a{
+    display: block;
+    font-size: 1.4em;
+    font-weight: 500;
+    color: #000;
+    text-transform: uppercase;
+    width: 140px;
+    line-height: 40px;
+    float: left;
+}
+.modal .modal-section .view .arrow-wrapper{
+    width: 40px;
+    height: 40px;
+    float: right;
+    overflow: hidden;
+}
+.modal .modal-section .view .arrow-wrapper .con{
+    width: 200%;
+    height: 100%;
+    overflow: hidden;
+    margin-left: -41px;
+    transition:all ease .5s;
+}
+.modal .modal-section .view .arrow-wrapper .arrow{
+    float: right;
+    width: 50%;
+    height: 100%;
+    position: relative;
+}
+.modal .modal-section .view .arrow-wrapper .arrow span{
+    position: absolute;
+    width: 33%;
+    height: 1px;
+    background: #000;
+    top: 50%;
+    right: 0;
+}
+.modal .modal-section .view .arrow-wrapper .arrow span:nth-child(1){
+    width: 80%;
+}
+.modal .modal-section .view .arrow-wrapper .arrow span:nth-child(2){
+    transform-origin: right;
+    transform:rotate(45deg);
+    
+}
+.modal .modal-section .view .arrow-wrapper .arrow span:nth-child(3){
+    transform-origin: right;
+    transform:rotate(-45deg);
+}
+
+.img-wrapper{
+    overflow: hidden;
+}
+.img-wrapper .img{
+    width: 50%;
+    float: left;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.img-wrapper .img img{
+    width: 100%;
+}
+
+.profile-modal .text-wrapper{
+    margin-bottom: 50px;
+}
+.profile-modal .text-wrapper .introduce{
+    
+}
+.profile-modal .text-wrapper .introduce li{}
+
+.profile-modal .text-wrapper .skill{
+    overflow: hidden;
+    padding-top: 50px;
+}
+.profile-modal .text-wrapper .skill li{
+    float: left;
+    width: 33.333333%;
+}
+.profile-modal .text-wrapper .skill li .title{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    line-height: 150px;
+    font-size: 1.3em;
+    transition: all ease .5s;
+}
+.profile-modal .text-wrapper .skill li .title:hover{
+    box-shadow: 0px 0px 20px 0px;
+}
+.profile-modal .text-wrapper .skill li .text{
+    min-height: 200px;
+    padding: 30px;
+    box-sizing: border-box;
+    font-size: 0.9em;
+}
