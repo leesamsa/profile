@@ -14,32 +14,20 @@ $(window).load(function(){
     
 })
 $(function(){
-    $(window).mousemove(function (event) {
-        x = event.clientX;
-        y = event.clientY; 
-        $(".cursor").animate({left:x, top:y},1)
-    });
-    $(".logo, .nav, .menu, .contact").mouseover(function(){
-        $(".circle").css({width:50,height:50,background:"transparent"})
-    }).mouseout(function(){
-        $(".circle").css({width:5,height:5,background:"#000"})
-    })
     $(".logo").mouseover(function(){
         $(this).css({height:110})
-        $(".header .logo p:nth-child(2)").css({left:0})
-        $(".header .logo p:nth-child(3)").css({left:0})
+        $(".header .logo p:nth-child(2)").css({left:0});
+        $(".header .logo p:nth-child(3)").css({left:0});
     }).mouseout(function(){
         $(this).css({height:30})
-        $(".header .logo p:nth-child(2)").css({left:-300})
-        $(".header .logo p:nth-child(3)").css({left:-300})
+        $(".header .logo p:nth-child(2)").css({left:-300});
+        $(".header .logo p:nth-child(3)").css({left:-300});
     });
 
     $(".section .wrap .img-wrapper img").mouseover(function(){
-        $(".circle").css({width:700,height:700,background:"transparent"})
         $(".zoom").stop().fadeIn();
         $(".section .wrap .img-wrapper p").stop().fadeIn();
     }).mouseout(function(){
-        $(".circle").css({width:5,height:5,background:"#000"})
         $(".zoom").stop().fadeOut();
         $(".section .wrap .img-wrapper p").stop().fadeOut();
     })

@@ -4,7 +4,7 @@
 
 /* reset */
 
-*{margin: 0;padding: 0;cursor: none;}
+*{margin: 0;padding: 0;}
 ul,ol,li{list-style: none;}
 a{text-decoration: none;}
 img{border: none; vertical-align: top;}
@@ -36,47 +36,6 @@ body{font-family: 'Lato', 'Noto Sans KR', sans-serif;}
     animation: cursor .7s infinite;
     font-weight: 300;
 }
-
- @keyframes cursor{ 
-      0%{border-right: 1px solid #fff} 
-      50%{border-right: 1px solid #000} 
-      100%{border-right: 1px solid #fff} 
-    }
-
-/* cursor */
-
-.cursor{
-    width: 50px;
-    height: 50px;
-    position: fixed;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-}
-.cursor .circle{
-    width: 5px;
-    height: 5px;
-    border: 2px solid #000;
-    position: absolute;
-    background: #000;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    transition: all ease .5s;
-}
-.cursor .circle .zoom{
-    position: absolute;
-    top: 600px;
-    left: 600px;
-    width: 400px;
-    height: 2px;
-    transform: rotate(45deg);
-    transform-origin: left;
-    background: #000;
-    display: none;
-    text-indent: 40px;
-}
-
 
 /* header */
 
