@@ -131,6 +131,7 @@ body{font-family: 'Lato', 'Noto Sans KR', sans-serif;}
     margin-top: 10px;
     transition: all ease .5s;
     opacity: 0;
+    cursor: pointer;
 }
 .header .nav.close{
     transform:rotate(360deg);
@@ -222,6 +223,7 @@ body{font-family: 'Lato', 'Noto Sans KR', sans-serif;}
     left: -100%;
     opacity: 0;
     transition: all ease .5s;
+    cursor: pointer;
 }
 .section .wrap .img-wrapper .img1{
     left: 0;
